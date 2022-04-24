@@ -23,9 +23,24 @@ function generateASCII(from, to, length){
     return result
 }
 
-console.log(generateASCII(97,122,10))
-console.log(generateASCII(65,90,10))
-console.log(generateASCII(48,57,10))
+let example = [...generateASCII(97,122,30).split(''), ...generateASCII(65,90,10).split(''), ...generateASCII(48,57,10).split('')]
+console.log(example)
+console.log(shuffle(example))
+// console.log(generateASCII(65,90,10))
+// console.log(generateASCII(48,57,10))
+
+
+function shuffle(array){
+    //array = array.split('');
+    for(let i = 0; i <= array.length; i++){
+        let x = random(0,array.length-1);
+        let y = random(0,array.length-1);
+        let tmp = array[x];
+        array[x] = array[y];
+        array[y] = tmp
+    }
+    return array
+}
 
 function generate(settings){
     // сумма всех count из settings
